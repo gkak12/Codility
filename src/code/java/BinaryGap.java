@@ -2,6 +2,8 @@ package code.java;
 
 /**
  * https://app.codility.com/c/run/trainingUZW4QA-V5D/
+ * 
+ * 배열
  */
 
 public class BinaryGap {
@@ -24,23 +26,23 @@ public class BinaryGap {
     }
 
     public static int solution(int N) {
-        String s = Integer.toBinaryString(N);
-        char one = '1';
-        int idx = 0;
-        int max = 0;
-        int tmpLen = 0;
+        String s = Integer.toBinaryString(N);   // 숫자를 2진수 문자열로 변환
+        char one = '1'; // '1' 문자
+        int idx = 0;    // 인덱스
+        int max = 0;    // 문자열 0의 최대 길이
+        int subLen = 0; // 부분 문자열 0의 길이
 
-        while(idx < s.length()){
-            if(s.charAt(idx) == one) {
-                max = Math.max(max, tmpLen);
-                tmpLen = 0;
-            } else {
-                tmpLen++;
+        while(idx < s.length()){    // 문자열 탐색
+            if(s.charAt(idx) == one) {  // 현재 문자가 '1'인 경우
+                max = Math.max(max, subLen);    // 문자열 0의 최대 길이 갱신
+                subLen = 0; // 부분 문자열 0으로 초기화
+            } else {    // 현재 문자가 '0'인 경우
+                subLen++;   // 부분 문자열 길이 1 증가
             }
 
-            idx++;
+            idx++;  // 인덱스 증가
         }
 
-        return max;
+        return max; // 문자열 0의 최대 길이 리턴
     }
 }
