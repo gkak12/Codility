@@ -30,6 +30,6 @@ public class PassingCars {
             }
         }
 
-        return total;   // 지나간 차 대수 리턴
+        return total > 1000000000 ? -1 : (int) total;   // 1000000000 보다 크면 -1 리턴, 작으면 지나간 차 대수 int로 형변환 후 리턴
     }
 }
